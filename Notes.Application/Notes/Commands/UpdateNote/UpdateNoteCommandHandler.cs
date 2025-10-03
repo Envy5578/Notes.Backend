@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Notes.Application.Common.Exceptions;
 using Notes.Application.Interfaces;
 using Notes.Domain;
 using System;
