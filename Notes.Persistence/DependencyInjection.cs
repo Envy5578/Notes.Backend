@@ -14,13 +14,16 @@ namespace Notes.Persistence
     {
         public static IServiceCollection AddPersistence(this IServiceCollection services, IConfiguration configuration)
         {
-            var connectionString = configuration["PostgresSql"];
+            var connectionString = configuration["Postgres"];
+
             services.AddDbContext<NotesDbContext>(options =>
             {
                 options.UseNpgsql(connectionString);
             });
+
             services.AddScoped<INotesDbContext>(provider =>
-                provider.GetService<NotesDbContext>());
+                provider.GetRequiredService<NotesDbContext>());
+
             return services;
         }
     }
