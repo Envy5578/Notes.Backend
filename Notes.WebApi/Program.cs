@@ -48,6 +48,12 @@ builder.Services.AddAuthentication(config =>
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<NotesDbContext>();
+    Notes.Persistence.DbInitializer.Initialize(context); // גûחמג EnsureCreated()
+}
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

@@ -15,7 +15,7 @@ namespace Notes.Application.Notes.Queries.GetNoteList
     {
         private readonly INotesDbContext _dbContext;
         private readonly IMapper _mapper;
-        public GetNoteListQueryHandler(INotesDbContext dbContext, Mapper mapper)
+        public GetNoteListQueryHandler(INotesDbContext dbContext, IMapper mapper)
         {
             _dbContext = dbContext;
             _mapper = mapper;
